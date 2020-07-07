@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import {Navbar,NavbarBrand} from 'reactstrap'
-import './App.css';
+import Menu from './components/MenuComponent'
 
 class App extends React.Component{
   render(){
@@ -12,7 +12,7 @@ class App extends React.Component{
         <NavbarBrand href="/">Confusion Nikhil</NavbarBrand>
       </div>
       </Navbar>
-
+      <Menu/>
 
     </div>
   );
