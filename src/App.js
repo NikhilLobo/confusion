@@ -1,18 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import {Navbar,NavbarBrand} from 'reactstrap'
-import Menu from './components/MenuComponent'
+import Main from './components/MainComponent'
 
 class App extends React.Component{
+
+
   render(){
     return (
-    <div className="App">
-      <Navbar dark color="primary">
-      <div className="container">
-        <NavbarBrand href="/">Confusion Nikhil</NavbarBrand>
-      </div>
-      </Navbar>
-      <Menu/>
+    <div>
+
+      <Main/>
 
     </div>
   );
