@@ -19,7 +19,9 @@ class Main extends React.Component{
     this.setState({selectedDish:dishId})
 
   }
-
+Compunentdidupdate(){
+  console.log("Update call");
+}
   render(){
     return (
     <div className="App">
