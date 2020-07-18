@@ -22,7 +22,7 @@ import { Card, CardImg, CardImgOverlay, CardTitle,Breadcrumb,BreadcrumbItem } fr
         const menu = props.dishes.map((dish) => {
             return (
                 <div className="col-md-4 m-1"  key={dish.id}>
-                    <RenderMenuItem dish={dish} />
+              n
                 </div>
             );
         });
