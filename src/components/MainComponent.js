@@ -55,7 +55,6 @@ class Main extends React.Component{
           <Route path="/menu/:dishId" component={dishWithId}/>
           <Route path="/contactus" component={Contact}/>
           <Route path="/aboutus" component={()=><About leaders={this.state.leaders}/>}/>
-
           <Redirect to="/home"/>
         </Switch>
       <Footer/>
