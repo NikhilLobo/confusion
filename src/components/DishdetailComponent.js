@@ -29,7 +29,7 @@ class CommentForm extends Component{
 
           handleSubmit(values){
 
-            alert('Current State is: ' + JSON.stringify(values));
+            this.props.addComment(this.props.dishId,values.rating,values.author,values.comment);
             this.toggleModal();
 
           }
@@ -66,7 +66,7 @@ render()
 
 
                                   <Col md={10}>
-                                      <Control.text model=".name" id="firstname" name="firstname"
+                                      <Control.text model=".author" id="firstname" name="firstname"
                                           placeholder="Your Name"
                                           className="form-control"
                                           validators={{
@@ -107,22 +107,22 @@ render()
 
 }
 
-  function RenderComment({comments})
+  function RenderComment({comments,addComment,dishId})
   {
 
     if (comments != null) {
          return (
            <div>
              <h4>Comments</h4>
-               {comments.map(comment => {
-                 return (
+               {comments.map(comment => (
+
                        <ul key={comment.id} className="list-unstyled">
                       <li className="comment">{comment.comment}</li>
                       <li className="author">--{comment.author},{comment.date}</li>
                       </ul>
-                 );
-               })}
-             <CommentForm />
+
+               ))}
+             <CommentForm dishId={dishId} addComment={addComment}/>
            </div>
          );
     }
@@ -179,7 +179,9 @@ render()
 
                   </div>
               <div className="col-md-4 m-1">
-                  <RenderComment comments={props.comments}/>
+                  <RenderComment comments={props.comments}
+                    addComment={props.addComment}
+                    dishId={props.dish.id}/>
 
           </div>
     </div>
