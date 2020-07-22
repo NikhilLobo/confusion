@@ -162,12 +162,42 @@ class Contact extends React.Component {
                               </Col>
                           </Row>
                           <Row className="form-group">
+                              <Col md={{size:6,offset:2}}>
+                                 <Row className="form-group">
+                                     <Label check>
+                                           <Control.checkbox model=".agree" name="agree"
+                                           onChange={this.handleInputChange}/> {' '}
+                                           <strong>  Mat we contact you..?</strong>
+                                     </Label>
+                                 </Row>
+
+                              </Col>
+                              <Col md={{size:3,offset:1}}>
+                                 <Control.select model=".contactType" name="contactType" >
+                                     <option>Tel.</option>
+                                     <option>Email</option>
+                                 </Control.select>
+
+                              </Col>
+                       </Row>
+                         <Row className="form-group">
+                           <Label htmlFor="message" md={2}>Your Feedback</Label>
+                           <Col md={10}>
+                                 <Control.textarea model=".message" name="message" id="message" rows="12" cols="80"
+                                />
+                           </Col>
+                       </Row>
+
+
+
+                          <Row className="form-group">
                               <Col md={{size:10, offset: 2}}>
                                   <Button type="submit" color="primary">
                                   Send Feedback
                                   </Button>
                               </Col>
                           </Row>
+
                   </LocalForm>
                 </div>
 
