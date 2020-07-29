@@ -1,21 +1,10 @@
 import React from 'react';
 import {Card, CardImg,CardTitle,CardText,CardSubtitle,CardBody} from 'reactstrap';
 import {Loading} from './LoadingComponent';
+import {baseUrl} from '../shared/baseUrl';
 
 function RenderCard({item,isLoading,errMess}){
-
-        return (<Card>
-              <CardBody>
-              <CardImg src={item.image} alt={item.name} />
-                  <CardTitle>{item.name}</CardTitle>
-                  {item.designation ? <CardSubtitle>{item.designation}</CardSubtitle>: null}
-                  <CardText>{item.description}</CardText>
-              </CardBody>
-          </Card>)
-}
-
-function Home(props){
-  if(props.dishesLoading){
+  if(isLoading){
 
 
     return(
@@ -23,23 +12,41 @@ function Home(props){
 
     );
   }
-  else if(props.dishesErrMess){
+  else if(errMess){
 
     return(
 
-        <h4> {props.dishesErrMess}</h4>
+        <h4> {errMess}</h4>
     );
   }
   else
   {
+
+
+        return (<Card>
+              <CardBody>
+              <CardImg src={baseUrl+item.image} alt={item.name} />
+                  <CardTitle>{item.name}</CardTitle>
+                  {item.designation ? <CardSubtitle>{item.designation}</CardSubtitle>: null}
+                  <CardText>{item.description}</CardText>
+              </CardBody>
+          </Card>)
+}
+}
+function Home(props){
+
       return(
         <div className="container">
             <div className="row align-items-start">
                 <div className="col-12 col-md m-1">
-                    <RenderCard item={props.dish}/>
+                    <RenderCard item={props.dish}
+                        isLoading={props.dishesLoading}
+                        errMess={props.dishesErrMess}/>
                 </div>
                 <div className="col-12 col-md m-1">
-                    <RenderCard item={props.promotion}/>
+                    <RenderCard item={props.promotion}
+                    isLoading={props.promosLoading}
+                    errMess={props.promosErrMess}/>
                 </div>
                 <div className="col-12 col-md m-1">
                     <RenderCard item={props.leader}/>
@@ -47,6 +54,5 @@ function Home(props){
             </div>
         </div>
       );
-}
 }
 export default Home;
